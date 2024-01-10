@@ -2,7 +2,7 @@
     const SERVER = 'mysql215.phy.lolipop.lan';
     const DBNAME = 'LAA1518092-final';
     const USER = 'LAA1518092';
-    const PASS = 'Pass1123';
+    const PASS = 'pass1123';
 
     $connect = 'mysql:host='. SERVER . ';dbname='. DBNAME . ';charset=utf8';
 ?>
