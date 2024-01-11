@@ -17,7 +17,7 @@
 <?php
     $pdo=new PDO($connect, USER, PASS);
     // SQL発行準備 prepareメソッド　作成２
-    $sql=$pdo->prepare('update product set date=?,mood=? where content=?');
+    $sql=$pdo->prepare('update nikki set date=?,mood=? where content=?');
 
     if($sql->execute([htmlspecialchars($_POST['date']),$_POST['mood'],$_POST['content']])){
         echo '更新に成功しました。';
