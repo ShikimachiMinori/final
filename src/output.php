@@ -10,35 +10,35 @@
 <html lang="ja">
 	<head>
 		<meta charset="UTF-8">
-		<title>結果</title>
+		<title>練習6-6-output</title>
 	</head>
 	<body>
+    <button onclick="location.href='itiran.php'">トップへ戻る</button>nb
 <?php
     $pdo=new PDO($connect, USER, PASS);
-    $sql=$pdo->prepare('delete from nikki where date=?');
-    if ($sql->execute([$_GET['date']])) {
-        echo '削除に成功しました。';
-    }else {
-        echo '削除に失敗しました。';
-    }
-?>
-    <br><hr><br>
-	<table>
+    // SQL発行準備 prepareメソッド　作成２
+    $sql=$pdo->prepare('update product set date=?,mood=? where content=?');
 
+    if($sql->execute([htmlspecialchars($_POST['date']),$_POST['mood'],$_POST['content']])){
+        echo '更新に成功しました。';
+    }else{
+        echo '更新に失敗しました。';
+    }    
+?>
+        <hr>
+        <table>
 <?php
-    foreach ($pdo->query('select * from nikki') as $row) {
-        echo '<tr>';
-        echo '<td>', $row['date'], '　</td>';
-        echo '<td>', $row['mood'], '　</td>';
-        echo '<td>', $row['content'], '　</td>';
-        echo '</tr>';
-        echo "\n";
-    }
-?> 
-</table>
-    <form action="nikki-input.php" method="post">
-        <button type="submit">削除画面へ戻る</button>
-    </form>
+foreach ($pdo->query('select * from nikki') as $row) {
+    echo '<tr>';
+    echo '<td>', $row['date'], '</td>';
+    echo '<td>', $row['mood'], '</td>';
+    echo '<td>', $row['content'], '</td>';
+    echo '</tr>';
+    echo "\n";
+}
+?>
+        </table>
+        <button onclick="location.href='ren6-6-input.php'">更新画面へ戻る</button>
     </body>
 </html>
 
