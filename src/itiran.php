@@ -40,7 +40,7 @@
     }
 ?>
     </table>
-    <button onclick="location.href='ren6-5-input.php'">商品を登録する</button>
+    <button onclick="location.href='ren6-5-input.php'">日記登録</button>
     </body>
 </html>
 
