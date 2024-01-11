@@ -23,10 +23,25 @@
         echo '<td>', $row['mood'], '　</td>';
         echo '<td>', $row['content'], '　</td>';
         echo '</tr>';
+        echo '<td>';
+        echo '<form action="nikki-edit.php" method="post">';
+        echo '<input type="hidden" name="id" value="', $row['id'], '">';
+        echo '<button type="submit">更新</button>';
+        echo '</form>';
+        echo '</td>';
+        echo '<td>';
+        echo '<form action="nikki-delete.php" method="post">';
+        echo '<input type="hidden" name="id" value="', $row['id'], '">';
+        echo '<button type="submit">削除</button>';
+        echo '</form>';
+        echo '</td>';
+        echo '</tr>';
         echo "\n";
+
     }
 ?>
     </table>
+    <button onclick="location.href='ren6-5-input.php'">商品を登録する</button>
     </body>
 </html>
 
