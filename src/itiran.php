@@ -24,13 +24,13 @@
         echo '<td>', $row['content'], '　</td>';
         echo '<td>';
         echo '<form action="nikki-edit.php" method="post">';
-        echo '<input type="hidden" name="id" value="', $row['id'], '">';
+        echo '<input type="hidden" name="date" value="', $row['date'], '">';
         echo '<button type="submit">更新</button>';
         echo '</form>';
         echo '</td>';
         echo '<td>';
         echo '<form action="nikki-delete.php" method="post">';
-        echo '<input type="hidden" name="id" value="', $row['id'], '">';
+        echo '<input type="hidden" name="date" value="', $row['date'], '">';
         echo '<button type="submit">削除</button>';
         echo '</form>';
         echo '</td>';
@@ -40,7 +40,7 @@
     }
 ?>
     </table>
-    <button onclick="location.href='ren6-5-input.php'">日記登録</button>
+    <button onclick="location.href='nikki-input.php'">日記登録</button>
     </body>
 </html>
 
