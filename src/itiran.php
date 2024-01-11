@@ -13,7 +13,7 @@
 		<title>日記一覧</title>
 	</head>
 	<body>
-        <h1>日記</h1>
+        <h1>日記一覧</h1>
     <table>
     <?php
     $pdo=new PDO($connect, USER, PASS);
