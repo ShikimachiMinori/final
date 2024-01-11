@@ -22,7 +22,6 @@
         echo '<td>', $row['date'], '　</td>';
         echo '<td>', $row['mood'], '　</td>';
         echo '<td>', $row['content'], '　</td>';
-        echo '</tr>';
         echo '<td>';
         echo '<form action="nikki-edit.php" method="post">';
         echo '<input type="hidden" name="id" value="', $row['id'], '">';
