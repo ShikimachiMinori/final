@@ -13,15 +13,15 @@
 		<title>日記一覧</title>
 	</head>
 	<body>
+        <h1>日記</h1>
     <table>
-    <tr><th>日付</th><th>気分</th><th>本文</th></tr>
     <?php
     $pdo=new PDO($connect, USER, PASS);
     foreach ($pdo->query('select * from nikki') as $row) {
         echo '<tr>';
-        echo '<td>', $row['date'], '</td>';
-        echo '<td>', $row['mood'], '</td>';
-        echo '<td>', $row['content'], '</td>';
+        echo '<td>', $row['date'], '　</td>';
+        echo '<td>', $row['mood'], '　</td>';
+        echo '<td>', $row['content'], '　</td>';
         echo '</tr>';
         echo "\n";
     }
