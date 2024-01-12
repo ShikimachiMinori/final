@@ -22,6 +22,8 @@
         echo '<td>',$row['mood'],'</td>';
         echo '<td>',$row['content'],'</td>';
         echo '<td>';
+        echo '<a href="ren6-7-output.php?id=', $row['id'], '">削除</a>';
+        echo '</td>';
         echo '</tr>';
         echo "\n";
     }

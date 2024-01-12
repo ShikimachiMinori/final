@@ -6,39 +6,41 @@
 
     $connect = 'mysql:host='. SERVER . ';dbname='. DBNAME . ';charset=utf8';
 ?>
-<!DOCTYPE html>
+  <!DOCTYPE html>
 <html lang="ja">
-	<head>
-		<meta charset="UTF-8">
-		<title>練習6-6-output</title>
-	</head>
-	<body>
-    <button onclick="location.href='itiran.php'">トップへ戻る</button>
+<head>
+    <meta charset="UTF-8">
+    <title>output</title>
+</head>
+<body>
+<button onclick="location.href='itiran.php'">トップへ戻る</button>
 <?php
-    $pdo=new PDO($connect, USER, PASS);
-    // SQL発行準備 prepareメソッド　作成２
-    $sql=$pdo->prepare('update nikki set content=?,mood=? where date=?');
-
-    if($sql->execute([htmlspecialchars($_POST['date']),$_POST['mood'],$_POST['content']])){
-        echo '更新に成功しました。';
-    }else{
-        echo '更新に失敗しました。';
-    }    
-?>
-        <hr>
-        <table>
-<?php
-foreach ($pdo->query('select * from nikki') as $row) {
-    echo '<tr>';
-    echo '<td>', $row['date'], '</td>';
-    echo '<td>', $row['mood'], '</td>';
-    echo '<td>', $row['content'], '</td>';
-    echo '</tr>';
-    echo "\n";
-}
-?>
-        </table>
-        <button onclick="location.href='ren6-6-input.php'">更新画面へ戻る</button>
-    </body>
+    $pdo=new PDO($connect,USER,PASS);
+    $sql=$pdo->prepare('insert into nikki(date,mood,content)values (?,?,?)');
+    if(!preg_match('/^\d+$/',$_POST['date'])){
+        echo '日付を整数で入力してください。';
+    }else if(empty($_POST['mood'])){
+        echo '気分を入力してください。';
+    }else if(empty($_POST['content'])){
+        echo '本文を入力してください。';
+    }else if($sql->execute([ $_POST['date'],$_POST['mood'],$_POST['content'] ]) ){
+        echo '<font color="red">追加に成功しました。</font>';
+    }else {
+        echo '<font color="red">追加に失敗しました。</font>';
+    }
+    ?>
+    <br><hr><br>
+    <table>
+     <?php
+     foreach ($pdo->query('select * from nikki')as $row){
+        echo '<tr>';
+        echo '<td>',$row['date'],'</td>';
+        echo '<td>',$row['mood'],'</td>';
+        echo '<td>',$row['content'],'</td>';
+        echo "\n";
+     }
+   
+    ?>
+    </table>
+</body>
 </html>
-
