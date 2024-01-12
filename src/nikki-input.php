@@ -1,34 +1,17 @@
-<?php
-    const SERVER = 'mysql220.phy.lolipop.lan';
-    const DBNAME = 'LAA1518092-final';
-    const USER = 'LAA1518092';
-    const PASS = 'pass1123';
 
-    $connect = 'mysql:host='. SERVER . ';dbname='. DBNAME . ';charset=utf8';
-?>
 <!DOCTYPE html>
 <html lang="ja">
-	<head>
-		<meta charset="UTF-8">
-		<title>input</title>
-	</head>
-	<body>
-        <table>
-<?php
-    $pdo=new PDO($connect, USER, PASS);
-    foreach($pdo->query('select * from nikki') as $row){
-        echo '<tr>';
-        echo '<td>',$row['date'],'</td>';
-        echo '<td>',$row['mood'],'</td>';
-        echo '<td>',$row['content'],'</td>';
-        echo '<td>';
-        echo '<a href="ren6-7-output.php?id=', $row['id'], '">削除</a>';
-        echo '</td>';
-        echo '</tr>';
-        echo "\n";
-    }
-
-?>
-    </table>
+    <head>
+        <meta charset="UTF-8">
+        <title>input</title>
+    </head>
+    <body>
+        <p>日記を追加します</p>
+        <form action="output.php" method="post">
+            商品番号<input type="text" name="date" ><br>
+            商品名<input type="text" name="mood"><br>
+            価格<input type="text" name="content"><br>
+            <button type="submit">追加</button>
+        </form>
     </body>
 </html>
