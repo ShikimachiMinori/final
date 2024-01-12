@@ -13,11 +13,11 @@
 		<title>練習6-6-output</title>
 	</head>
 	<body>
-    <button onclick="location.href='itiran.php'">トップへ戻る</button>nb
+    <button onclick="location.href='itiran.php'">トップへ戻る</button>
 <?php
     $pdo=new PDO($connect, USER, PASS);
     // SQL発行準備 prepareメソッド　作成２
-    $sql=$pdo->prepare('update nikki set date=?,mood=? where content=?');
+    $sql=$pdo->prepare('update nikki set content=?,mood=? where date=?');
 
     if($sql->execute([htmlspecialchars($_POST['date']),$_POST['mood'],$_POST['content']])){
         echo '更新に成功しました。';
