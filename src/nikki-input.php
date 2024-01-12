@@ -7,9 +7,9 @@
     <body>
         <p>日記を追加します</p>
         <form action="output.php" method="post">
-            商品番号<input type="text" name="date" ><br>
-            商品名<input type="text" name="mood"><br>
-            価格<input type="text" name="content"><br>
+            日付<input type="text" name="date" ><br>
+           　気分<input type="text" name="mood"><br>
+            本文<input type="text" name="content"><br>
             <button type="submit">追加</button>
         </form>
     </body>
