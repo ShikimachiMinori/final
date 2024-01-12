@@ -17,7 +17,7 @@
 <?php
     $pdo=new PDO($connect, USER, PASS);
     // SQL発行準備 prepareメソッド　作成２
-    $sql=$pdo->prepare('update nikki set mood=?,content=? where id=?');
+    $sql=$pdo->prepare('update nikki set mood=?,content=? where date=?');
     if(empty($_POST['date'])){
         echo '日付を入力してください。';
     }else if(empty($_POST['mood'])){
