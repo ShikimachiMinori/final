@@ -13,7 +13,7 @@
 		<title>output</title>
 	</head>
 	<body>
-    <button onclick="location.href='itiran.php'">トップへ戻る</button>nb
+    <button onclick="location.href='itiran.php'">トップへ戻る</button>
 <?php
     $pdo=new PDO($connect, USER, PASS);
     // SQL発行準備 prepareメソッド　作成２
@@ -24,7 +24,7 @@
         echo '気分を入力してください。';
     }else if(empty($_POST['content'])){
         echo '本文を入力してください。';
-    }else if($sql->execute([htmlspecialchars($_POST['name']),$_POST['price'],$_POST['id']])){
+    }else if($sql->execute([htmlspecialchars($_POST['date']),$_POST['mood'],$_POST['content']])){
         echo '更新に成功しました。';
     }else{
         echo '更新に失敗しました。';
