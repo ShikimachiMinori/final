@@ -17,19 +17,25 @@
 <?php
     $pdo=new PDO($connect, USER, PASS);
     // SQL発行準備 prepareメソッド　作成２
-    $sql=$pdo->prepare('update nikki set mood=?,content=? where date=?');
-    if(empty($_POST['date'])){
+    $sql = $pdo->prepare('update nikki set mood=?, content=? where date=?');
+    if (empty($_POST['date'])) {
         echo '日付を入力してください。';
-    }else if(empty($_POST['mood'])){
+    } else if (empty($_POST['mood'])) {
         echo '気分を入力してください。';
-    }else if(empty($_POST['content'])){
+    } else if (empty($_POST['content'])) {
         echo '本文を入力してください。';
-    }else if($sql->execute([htmlspecialchars($_POST['date']),$_POST['mood'],$_POST['content']])){
-        echo '更新に成功しました。';
-    }else{
-        echo '更新に失敗しました。';
-    }    
-?>
+    } else {
+        $date = htmlspecialchars($_POST['date'], ENT_QUOTES, 'UTF-8');
+        $mood = htmlspecialchars($_POST['mood'], ENT_QUOTES, 'UTF-8');
+        $content = htmlspecialchars($_POST['content'], ENT_QUOTES, 'UTF-8');
+
+        if ($sql->execute([$mood, $content, $date])) {
+            echo '更新に成功しました。';
+        } else {
+            echo '更新に失敗しました。';
+        }
+    }
+    ?>
         <hr>
         <table>
   
