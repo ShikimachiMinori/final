@@ -17,8 +17,8 @@
 <?php
     $pdo=new PDO($connect,USER,PASS);
     $sql=$pdo->prepare('insert into nikki(date,mood,content)values (?,?,?)');
-    if(!preg_match('/^\d+$/',$_POST['date'])){
-        echo '日付を整数で入力してください。';
+    if(empty($_POST['date'])){
+        echo '日付を入力してください。';
     }else if(empty($_POST['mood'])){
         echo '気分を入力してください。';
     }else if(empty($_POST['content'])){
