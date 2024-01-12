@@ -21,7 +21,7 @@
 
 	foreach ($sql as $row) {
         echo '<tr>';
-		echo '<form action="output.php" method="post">';
+		echo '<form action="kousin-output.php" method="post">';
         echo '<td> ';
 		echo '<input type="text" name="date" value="', $row['date'], '">';
 		echo '</td> ';
