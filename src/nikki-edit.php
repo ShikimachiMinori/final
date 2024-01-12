@@ -17,7 +17,7 @@
 <?php
     $pdo=new PDO($connect, USER, PASS);
 	$sql=$pdo->prepare('select * from nikki where date=?');
-	$sql->execute([$_POST['date']]);
+	$sql->execute([$_GET['date']]);
 
 	foreach ($sql as $row) {
         echo '<tr>';
