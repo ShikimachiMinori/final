@@ -23,7 +23,7 @@
         echo '<tr>';
 		echo '<form action="kousin-output.php" method="post">';
         echo '<td> ';
-		echo '<input type="text" name="date" value="', $row['date'], '">';
+		echo '<input type="hidden" name="date" value="', $row['date'], '">';
 		echo '</td> ';
 		echo '<td>';
 		echo '<input type="text" name="mood" value="', $row['mood'], '">';
