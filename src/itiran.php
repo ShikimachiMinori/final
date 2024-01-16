@@ -15,7 +15,7 @@
 	</head>
 	<body>
         <h1>日記一覧</h1>
-
+<hr>
     <table>
     <?php
     $pdo=new PDO($connect, USER, PASS);
