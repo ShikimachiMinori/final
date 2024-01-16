@@ -11,9 +11,12 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>日記一覧</title>
+        <link rel="stylesheet" href="style.css">
 	</head>
 	<body>
+    <div id="mannaka">
         <h1>日記一覧</h1>
+
     <table>
     <?php
     $pdo=new PDO($connect, USER, PASS);
@@ -40,6 +43,7 @@
     }
 ?>
     </table>
+    </div>
     <button onclick="location.href='nikki-input.php'">日記登録</button>
     </body>
 </html>
