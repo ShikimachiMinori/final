@@ -14,7 +14,6 @@
         <link rel="stylesheet" href="style.css">
 	</head>
 	<body>
-    <div id="mannaka">
         <h1>日記一覧</h1>
 
     <table>
@@ -43,7 +42,6 @@
     }
 ?>
     </table>
-    </div>
     <button onclick="location.href='nikki-input.php'">日記登録</button>
     </body>
 </html>
