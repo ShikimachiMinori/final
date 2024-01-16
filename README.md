@@ -4,4 +4,4 @@
 ### クラス　　　：SD2F
 ### 氏名　　　　：式町　美紀
 ### システム名　：日記システム
-### URL　　　　 ：
+### URL　　　　 ：https://aso2201409.readymade.jp/final/src/itiran.php
